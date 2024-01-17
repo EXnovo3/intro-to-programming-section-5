@@ -46,9 +46,9 @@ function hideAllMessages() {
 function checkGuess() {
   // Get value from guess input element
   const guess = parseInt(guessInput.value, 10);
+  attempts = attempts + 1;
   let remainingAttempts = maxNumberOfAttempts - attempts;
-  attempts++;
-
+  
   hideAllMessages();
 
   if (guess === targetNumber) {
@@ -59,6 +59,7 @@ function checkGuess() {
 
     submitButton.disabled = true;
     guessInput.disabled = true;
+    resetButton.style.display = ''; // reset button added
   } else if (guess < targetNumber) {
     tooLowMessage.style.display = '';
   } else {
